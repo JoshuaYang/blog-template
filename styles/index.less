@@ -1,0 +1,143 @@
+@import "../vendors/joshua.js/less/all.less";
+@import "../vendors/fontawesome/less/font-awesome.less";
+.normalize();
+.reset();
+
+.js-picture{
+	img, canvas{
+		width: 100%;
+	}
+}
+
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+html, body{
+	width: 100%;
+	height: 100%;
+	font-family: 'Microsoft Yahei', '微软雅黑';
+}
+
+body{
+	min-height: 470px;
+}
+
+#left-panel{
+	position: fixed;
+	height: 100%;
+	width: 370px;
+	background-color: #222729;
+	.box-shadow(inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125));
+
+	.profile{
+		position: relative;
+		margin: 40px 35px;
+		overflow: auto;
+		min-height: 85px;
+
+		.face{
+			float: left;
+			width: 80px;
+			height: 80px;
+		}
+
+		.desc{
+			float: right;
+
+			h1, h2{
+				text-align: right;
+			}
+			h1{
+				color: white;
+				font-size: 3em;
+			}
+			h2{
+				color: #aaa;
+				font-size: 1.5em;
+			}
+		}
+	}
+
+	.nav-menu{
+		ul{
+			li{
+				a{
+					display: block;
+					font-size: 1.3em;
+					text-align: right;
+					padding: 0.9em 2em;
+					color: #aaa;
+					overflow: auto;
+					line-height: 30px;
+					.transition(color 0.3s ease);
+
+					.fa{
+						float: left;
+						font-size: 1.4em;
+					}
+					.text{
+						float: right;
+					}
+				}
+
+				&.active a{
+					background: rgba(0,0,0,0.15);
+					box-shadow: inset 0 0 0.25em 0 rgba(0,0,0,0.125);
+					color: #fff;
+
+					.fa{
+						color: purple;
+					}
+				}
+
+				&:hover a{
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.social{
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		border-top: solid 1px rgba(255,255,255,0.05);
+		padding-top: 30px;
+
+		ul{
+			margin-bottom: 2em;
+			width: 100%;
+			text-align: center;
+			li{
+				display: inline-block;
+				a{
+					width: 40px;
+					display: block;
+					color: gray;
+					.transition(color 0.3s ease);
+
+					span{
+						font-size: 1.5em;
+					}
+				}
+
+				&:hover{
+					a{
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}
