@@ -31,27 +31,27 @@
         <nav class="nav-menu">
             <ul>
                 <li class="active">
-                    <a href="#">
-                        <span class="fa fa-home"></span>
-                        <span class="text">Home</span>
+                    <a href="#intro">
+                        <span class="fa fa-fw fa-home"></span>
+                        <span class="text">Intro</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="fa fa-home"></span>
-                        <span class="text">Home</span>
+                    <a href="#developing">
+                        <span class="fa fa-fw fa-refresh fa-spin"></span>
+                        <span class="text">Developing</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="fa fa-home"></span>
-                        <span class="text">Home</span>
+                    <a href="#about">
+                        <span class="fa fa-fw fa-user"></span>
+                        <span class="text">About Me</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="fa fa-home"></span>
-                        <span class="text">Home</span>
+                    <a href="#contact">
+                        <span class="fa fa-fw fa-envelope"></span>
+                        <span class="text">Contact</span>
                     </a>
                 </li>
             </ul>
@@ -59,32 +59,84 @@
         <div class="social">
             <ul>
                 <li>
-                    <a href="#" title="github">
+                    <a href="#" title="github" class="github">
                         <span class="fa fa-fw fa-github"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="facebook">
+                    <a href="#" title="facebook" class="facebook">
                         <span class="fa fa-fw fa-facebook"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="twitter">
+                    <a href="#" title="twitter" class="twitter">
                         <span class="fa fa-fw fa-twitter"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="flickr">
-                        <span class="fa fa-fw fa-flickr"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="email">
-                        <span class="fa fa-fw fa-envelope"></span>
+                    <a href="#" title="tumblr" class="tumblr">
+                        <span class="fa fa-fw fa-tumblr"></span>
                     </a>
                 </li>
             </ul>
         </div>
+    </aside>
+    <aside id="right-panel">
+        <header>
+            <div class="js-picture banner" js-source="images/banner.jpg"></div>
+        </header>
+        <section id="intro">
+            <div class="container">
+                <h2>Intro</h2>
+                <p>只是一个小码农- -</p>
+                <footer>
+                    <a href="#" class="button">more</a>
+                </footer>
+            </div>
+        </section>
+        <section id="developing">
+            <div class="container">
+                <h2>Developing</h2>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <footer>
+                    <a href="#" class="button">Go To Resume</a>
+                </footer>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <form action="#" method="post">
+                    <div class="form-row">
+                        <div class="half">
+                            <input required type="text" placeholder="Name">
+                        </div>
+                        <div class="half">
+                            <input required type="email" placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="full">
+                            <textarea required name="message" id="message" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="full">
+                            <input class="button" id="submit" type="submit" value="Send Message">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <footer id="footer">
+            <div class="container">
+                <p>© 2014 Joshua Yang. All rights reserved.</p>
+            </div>
+        </footer>
     </aside>
 </body>
 </html>

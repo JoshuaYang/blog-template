@@ -18,7 +18,8 @@ clear: both;
 height: 0;
 }
 
-a{
+a, a:focus{
+	outline: none;
 	color: white;
 	text-decoration: none;
 }
@@ -26,11 +27,16 @@ a{
 html, body{
 	width: 100%;
 	height: 100%;
-	font-family: 'Microsoft Yahei', '微软雅黑';
+	.user-select(none);
 }
 
 body{
 	min-height: 470px;
+}
+
+body, input, textarea, select{
+	font-family: 'Microsoft Yahei', '微软雅黑';
+	color: #888;
 }
 
 #left-panel{
@@ -38,7 +44,7 @@ body{
 	height: 100%;
 	width: 370px;
 	background-color: #222729;
-	.box-shadow(inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125));
+	.box-shadow(inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125),0.25em 0 0.5em 0 rgba(0,0,0,0.5));
 
 	.profile{
 		position: relative;
@@ -74,17 +80,19 @@ body{
 			li{
 				a{
 					display: block;
-					font-size: 1.3em;
+					font-size: 1.2em;
 					text-align: right;
 					padding: 0.9em 2em;
 					color: #aaa;
 					overflow: auto;
-					line-height: 30px;
-					.transition(color 0.3s ease);
+					line-height: 28px;
+					.transition(color 0.35s ease);
 
 					.fa{
 						float: left;
-						font-size: 1.4em;
+						font-size: 1.2em;
+						position: relative;
+						top: 3px;
 					}
 					.text{
 						float: right;
@@ -93,11 +101,11 @@ body{
 
 				&.active a{
 					background: rgba(0,0,0,0.15);
-					box-shadow: inset 0 0 0.25em 0 rgba(0,0,0,0.125);
+					box-shadow: inset 0 0 0.5em 0 rgba(0,0,0,0.2);
 					color: #fff;
 
 					.fa{
-						color: purple;
+						color: #E27689;
 					}
 				}
 
@@ -116,7 +124,7 @@ body{
 		padding-top: 30px;
 
 		ul{
-			margin-bottom: 2em;
+			margin-bottom: 2.5em;
 			width: 100%;
 			text-align: center;
 			li{
@@ -125,7 +133,7 @@ body{
 					width: 40px;
 					display: block;
 					color: gray;
-					.transition(color 0.3s ease);
+					.transition(color 0.3s ease-in-out, transform 0.3s ease-in-out);
 
 					span{
 						font-size: 1.5em;
@@ -134,10 +142,117 @@ body{
 
 				&:hover{
 					a{
-						color: white;
+						.translate(0px, -5px);
+						&.github{
+							color: #FAFAFA;
+						}
+						&.facebook{
+							color: #3C5A98;
+						}
+						&.twitter{
+							color: #2DAAE4;
+						}
+						&.tumblr{
+							color: #51718A;
+						}
 					}
 				}
 			}
+		}
+	}
+}
+
+#right-panel{
+	margin-left: 370px;
+	
+	section{
+		padding: 3em 0;
+		.box-shadow(inset 0 -1px 0 0 rgba(0,0,0,0.05), inset 0 -0.1em 0.1em 0 rgba(0,0,0,0.025));
+
+		h2{
+			text-align: center;
+			font-size: 2.5em;
+			margin-bottom: 1em;
+		}
+
+		footer{
+			text-align: center;
+			margin-top: 2em;
+		}
+
+		.button{
+			width: auto;
+			padding: 1.5em 3.5em;
+			display: inline-block;
+			color: #fff;
+			background-color: #8ebebc;
+			border: 0;
+			.transition(all 0.35s ease-in-out);
+			.border-radius(0.35em);
+
+			&:hover{
+				background-color: #9ececc;
+			}
+		}
+	}
+	.container{
+		padding: 0 3.5em;
+	}
+
+	#intro{
+		background-color: #ffffff;
+	}
+	#developing{
+		background-color: #f5fafa;
+	}
+	#about{
+		background-color: #ecf1f1;
+	}
+	#contact{
+		background-color: #e8edec;
+
+		form{
+			.form-row{
+				margin-left: -15px;
+				overflow: auto;
+				margin-bottom: 15px;
+
+				.half, .full{
+					width: 50%;
+					float: left;
+					padding-left: 15px;
+					.box-sizing(border-box);
+				}
+				.full{
+					width: 100%;
+					clear: both;
+					text-align: center;
+				}
+
+				input[type="text"], input[type="email"], textarea{
+					display: block;
+					width: 100%;
+					background: rgba(255,255,255,0.75);
+					.border-radius(0.35em);
+					padding: 1em 1em;
+					.box-shadow(inset 0 0.1em 0.1em 0 rgba(0,0,0,0.05));
+					border: solid 1px rgba(0,0,0,0.15);
+					.box-sizing(border-box);
+					.transition(transform 0.3s ease-in-out);
+				}
+				textarea{
+					min-height: 16em;
+				}
+			}
+		}
+	}
+
+	#footer{
+		padding: 3em 0;
+		background-color: #dce3e2;
+
+		p{
+			text-align: center;
 		}
 	}
 }

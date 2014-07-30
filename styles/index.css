@@ -1930,7 +1930,9 @@ table {
   clear: both;
   height: 0;
 }
-a {
+a,
+a:focus {
+  outline: none;
   color: white;
   text-decoration: none;
 }
@@ -1938,20 +1940,30 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-family: 'Microsoft Yahei', '微软雅黑';
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 body {
   min-height: 470px;
+}
+body,
+input,
+textarea,
+select {
+  font-family: 'Microsoft Yahei', '微软雅黑';
+  color: #888;
 }
 #left-panel {
   position: fixed;
   height: 100%;
   width: 370px;
   background-color: #222729;
-  -webkit-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125);
-  -moz-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125);
-  -ms-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125);
-  box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125);
+  -webkit-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
+  -ms-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
+  box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
 }
 #left-panel .profile {
   position: relative;
@@ -1981,31 +1993,33 @@ body {
 }
 #left-panel .nav-menu ul li a {
   display: block;
-  font-size: 1.3em;
+  font-size: 1.2em;
   text-align: right;
   padding: 0.9em 2em;
   color: #aaa;
   overflow: auto;
-  line-height: 30px;
-  -webkit-transition: color 0.3s ease;
-  -moz-transition: color 0.3s ease;
-  -ms-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  line-height: 28px;
+  -webkit-transition: color 0.35s ease;
+  -moz-transition: color 0.35s ease;
+  -ms-transition: color 0.35s ease;
+  transition: color 0.35s ease;
 }
 #left-panel .nav-menu ul li a .fa {
   float: left;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  position: relative;
+  top: 3px;
 }
 #left-panel .nav-menu ul li a .text {
   float: right;
 }
 #left-panel .nav-menu ul li.active a {
   background: rgba(0, 0, 0, 0.15);
-  box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
   color: #fff;
 }
 #left-panel .nav-menu ul li.active a .fa {
-  color: purple;
+  color: #E27689;
 }
 #left-panel .nav-menu ul li:hover a {
   color: #fff;
@@ -2018,7 +2032,7 @@ body {
   padding-top: 30px;
 }
 #left-panel .social ul {
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
   width: 100%;
   text-align: center;
 }
@@ -2029,15 +2043,146 @@ body {
   width: 40px;
   display: block;
   color: gray;
-  -webkit-transition: color 0.3s ease;
-  -moz-transition: color 0.3s ease;
-  -ms-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, -moz-transform 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, -ms-transform 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 #left-panel .social ul li a span {
   font-size: 1.5em;
 }
 #left-panel .social ul li:hover a {
-  color: white;
+  -webkit-transform: translate(0px, -5px);
+  -moz-transform: translate(0px, -5px);
+  -ms-transform: translate(0px, -5px);
+  transform: translate(0px, -5px);
+}
+#left-panel .social ul li:hover a.github {
+  color: #FAFAFA;
+}
+#left-panel .social ul li:hover a.facebook {
+  color: #3C5A98;
+}
+#left-panel .social ul li:hover a.twitter {
+  color: #2DAAE4;
+}
+#left-panel .social ul li:hover a.tumblr {
+  color: #51718A;
+}
+#right-panel {
+  margin-left: 370px;
+}
+#right-panel section {
+  padding: 3em 0;
+  -webkit-box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05), inset 0 -0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
+  -moz-box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05), inset 0 -0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
+  -ms-box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05), inset 0 -0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05), inset 0 -0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
+}
+#right-panel section h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+#right-panel section footer {
+  text-align: center;
+  margin-top: 2em;
+}
+#right-panel section .button {
+  width: auto;
+  padding: 1.5em 3.5em;
+  display: inline-block;
+  color: #fff;
+  background-color: #8ebebc;
+  border: 0;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+  -webkit-border-radius: 0.35em;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0.35em;
+  -moz-background-clip: padding;
+  -ms-border-radius: 0.35em;
+  -ms-background-clip: padding-box;
+  border-radius: 0.35em;
+  background-clip: padding-box;
+}
+#right-panel section .button:hover {
+  background-color: #9ececc;
+}
+#right-panel .container {
+  padding: 0 3.5em;
+}
+#right-panel #intro {
+  background-color: #ffffff;
+}
+#right-panel #developing {
+  background-color: #f5fafa;
+}
+#right-panel #about {
+  background-color: #ecf1f1;
+}
+#right-panel #contact {
+  background-color: #e8edec;
+}
+#right-panel #contact form .form-row {
+  margin-left: -15px;
+  overflow: auto;
+  margin-bottom: 15px;
+}
+#right-panel #contact form .form-row .half,
+#right-panel #contact form .form-row .full {
+  width: 50%;
+  float: left;
+  padding-left: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#right-panel #contact form .form-row .full {
+  width: 100%;
+  clear: both;
+  text-align: center;
+}
+#right-panel #contact form .form-row input[type="text"],
+#right-panel #contact form .form-row input[type="email"],
+#right-panel #contact form .form-row textarea {
+  display: block;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-border-radius: 0.35em;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0.35em;
+  -moz-background-clip: padding;
+  -ms-border-radius: 0.35em;
+  -ms-background-clip: padding-box;
+  border-radius: 0.35em;
+  background-clip: padding-box;
+  padding: 1em 1em;
+  -webkit-box-shadow: inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.05);
+  -ms-box-shadow: inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.05);
+  border: solid 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out;
+  -ms-transition: -ms-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+#right-panel #contact form .form-row textarea {
+  min-height: 16em;
+}
+#right-panel #footer {
+  padding: 3em 0;
+  background-color: #dce3e2;
+}
+#right-panel #footer p {
+  text-align: center;
 }
 /*# sourceMappingURL=index.css.map */
