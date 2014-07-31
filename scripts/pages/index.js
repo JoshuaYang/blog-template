@@ -6,9 +6,17 @@ define(['jquery',
 		'domReady!'], 
 	function($, Sprite, Picture, SmoothMouseWheel){
 
-	var $html = $('html'),
+	var $window = $(window),
+		$document = $(document),
+		$html = $('html'),
 		$body = $('body'),
-		navItems = $('.nav-menu ul li');
+		navItems = $('.nav-menu ul li'),
+		customScrollBarContent = $('.customScrollBarContent'),
+		wh = $window.height(),
+		dh = $document.height();
+
+
+
 
 	navItems.on('click', function(e){
 		e.preventDefault();
@@ -48,4 +56,38 @@ define(['jquery',
         duration: 900,
         maxDetail: 40
 	});
+
+	// custom scrollbar
+	$window.on('scroll', changeScrollBarPos).on('resize', changeScrollBarHeight);
+
+	function changeScrollBarPos(){
+		customScrollBarContent.addClass('scrolling');
+
+		var scrollTop = $html.scrollTop();
+		scrollTop = scrollTop ? scrollTop : $body.scrollTop();
+
+		console.log(scrollTop, wh, dh);
+		var ratio = scrollTop / dh * 100 + '%';
+
+		$('.customScrollBarContent').css({
+			'top': ratio
+		});
+
+		setTimeout(function(){
+			customScrollBarContent.removeClass('scrolling');
+		}, 500);
+	}
+	function changeScrollBarHeight(){
+		wh = $window.height();
+		dh = $document.height();
+		var ratio = wh / dh * 100 + '%';
+
+		$('.customScrollBarContent').css('height', ratio);
+	}
+
+	setTimeout(changeScrollBarHeight, 100)
+	setTimeout(function(){
+		changeScrollBarPos();
+		customScrollBarContent.addClass('ready');
+	},200)
 });

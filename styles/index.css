@@ -1946,6 +1946,8 @@ body {
   user-select: none;
 }
 body {
+  position: relative;
+  overflow: hidden;
   min-height: 470px;
 }
 body,
@@ -1954,6 +1956,39 @@ textarea,
 select {
   font-family: 'Microsoft Yahei', '微软雅黑';
   color: #888;
+}
+.customScrollBar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 10px;
+  background-color: #ccc;
+}
+.customScrollBar .customScrollBarContent {
+  position: absolute;
+  opacity: 0;
+  width: 8px;
+  right: 1px;
+  background-color: gray;
+  -webkit-border-radius: 10px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 10px;
+  -moz-background-clip: padding;
+  -ms-border-radius: 10px;
+  -ms-background-clip: padding-box;
+  border-radius: 10px;
+  background-clip: padding-box;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+.customScrollBar .customScrollBarContent.ready {
+  opacity: 0.4;
+}
+.customScrollBar .customScrollBarContent.scrolling {
+  opacity: 1;
 }
 #left-panel {
   position: fixed;
@@ -1968,7 +2003,6 @@ select {
 #left-panel .profile {
   position: relative;
   margin: 40px 35px;
-  overflow: auto;
   min-height: 85px;
 }
 #left-panel .profile .face {
@@ -2071,6 +2105,7 @@ select {
 }
 #right-panel {
   margin-left: 370px;
+  margin-right: 10px;
 }
 #right-panel section {
   padding: 3em 0;
@@ -2083,6 +2118,11 @@ select {
   text-align: center;
   font-size: 2.5em;
   margin-bottom: 1em;
+}
+#right-panel section p {
+  text-align: center;
+  line-height: 2em;
+  font-size: 1.2em;
 }
 #right-panel section footer {
   text-align: center;
@@ -2184,5 +2224,47 @@ select {
 }
 #right-panel #footer p {
   text-align: center;
+}
+@media screen and (max-width: 1370px) {
+  #left-panel {
+    width: 300px;
+  }
+  #left-panel .profile {
+    min-height: 70px;
+  }
+  #left-panel .profile .face {
+    width: 65px;
+    height: 65px;
+  }
+  #left-panel .profile .desc h1 {
+    font-size: 2.2em;
+  }
+  #left-panel .profile .desc h2 {
+    font-size: 1.3em;
+  }
+  #left-panel .nav-menu ul li a {
+    font-size: 1em;
+    padding: 0.9em 2em;
+    line-height: 28px;
+  }
+  #left-panel .nav-menu ul li a .fa {
+    font-size: 1.2em;
+    top: 4px;
+  }
+  #left-panel .social {
+    bottom: 0;
+  }
+  #left-panel .social ul {
+    margin-bottom: 2.5em;
+  }
+  #left-panel .social ul li a {
+    width: 35px;
+  }
+  #left-panel .social ul li a span {
+    font-size: 1.4em;
+  }
+  #right-panel {
+    margin-left: 300px;
+  }
 }
 /*# sourceMappingURL=index.css.map */
