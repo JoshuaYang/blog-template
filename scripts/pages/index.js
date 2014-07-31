@@ -6,18 +6,27 @@ define(['jquery',
 		'domReady!'], 
 	function($, Sprite, Picture, SmoothMouseWheel){
 
+	// var xxx
 	var $window = $(window),
 		$document = $(document),
 		$html = $('html'),
 		$body = $('body'),
+		leftPanel = $('#left-panel'),
+		rightPanel = $('#right-panel'),
 		navItems = $('.nav-menu ul li'),
 		customScrollBarContent = $('.customScrollBarContent'),
-		wh = $window.height(),
+		toggleBtn = $('.toggle');
+
+	var wh = $window.height(),
 		dh = $document.height();
 
 
 
 
+
+
+
+	// click nav item
 	navItems.on('click', function(e){
 		e.preventDefault();
 
@@ -38,6 +47,16 @@ define(['jquery',
 		$this.addClass('active');
 	});
 
+	toggleBtn.on('click', function(){
+		$body.toggleClass('chosing');
+	});
+
+
+
+
+
+
+
 	// preload pictures
 	(function(){
 		$('.js-picture').each(function(i, item){
@@ -50,12 +69,29 @@ define(['jquery',
 		Picture.load();
 	})();
 
+
+
+
+
+
+
 	// smooth mouse wheel
 	SmoothMouseWheel.enable({
 		spring: .4,
         duration: 900,
         maxDetail: 40
 	});
+
+
+
+	// hide menu
+	$window.on('resize scroll', function(){
+		$body.removeClass('chosing');
+	});
+	rightPanel.on('click', function(){
+		$body.removeClass('chosing');
+	})
+
 
 	// custom scrollbar
 	$window.on('scroll', changeScrollBarPos).on('resize', changeScrollBarHeight);
@@ -66,7 +102,6 @@ define(['jquery',
 		var scrollTop = $html.scrollTop();
 		scrollTop = scrollTop ? scrollTop : $body.scrollTop();
 
-		console.log(scrollTop, wh, dh);
 		var ratio = scrollTop / dh * 100 + '%';
 
 		$('.customScrollBarContent').css({

@@ -1949,6 +1949,7 @@ body {
   position: relative;
   overflow: hidden;
   min-height: 470px;
+  min-width: 320px;
 }
 body,
 input,
@@ -1999,6 +2000,7 @@ select {
   -moz-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
   -ms-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
   box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 #left-panel .profile {
   position: relative;
@@ -2103,9 +2105,49 @@ select {
 #left-panel .social ul li:hover a.tumblr {
   color: #51718A;
 }
+#left-panel .toggle {
+  position: absolute;
+  right: -45px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: none;
+  -webkit-border-radius: 10px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 10px;
+  -moz-background-clip: padding;
+  -ms-border-radius: 10px;
+  -ms-background-clip: padding-box;
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+#left-panel .toggle .icon {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 26px;
+  opacity: 0.8;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease;
+  -ms-transition: -ms-transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+.chosing #left-panel .toggle .icon {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 #right-panel {
   margin-left: 370px;
   margin-right: 10px;
+}
+#right-panel header {
+  height: 600px;
+  background: url('../images/banner.jpg') center center no-repeat;
+  background-size: auto 100%;
 }
 #right-panel section {
   padding: 3em 0;
@@ -2135,10 +2177,10 @@ select {
   color: #fff;
   background-color: #8ebebc;
   border: 0;
-  -webkit-transition: all 0.35s ease-in-out;
-  -moz-transition: all 0.35s ease-in-out;
-  -ms-transition: all 0.35s ease-in-out;
-  transition: all 0.35s ease-in-out;
+  -webkit-transition: background 0.35s ease-in-out;
+  -moz-transition: background 0.35s ease-in-out;
+  -ms-transition: background 0.35s ease-in-out;
+  transition: background 0.35s ease-in-out;
   -webkit-border-radius: 0.35em;
   -webkit-background-clip: padding-box;
   -moz-border-radius: 0.35em;
@@ -2166,6 +2208,9 @@ select {
 #right-panel #contact {
   background-color: #e8edec;
 }
+#right-panel #contact form {
+  margin-top: 1.5em;
+}
 #right-panel #contact form .form-row {
   margin-left: -15px;
   overflow: auto;
@@ -2180,6 +2225,7 @@ select {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  overflow: hidden;
 }
 #right-panel #contact form .form-row .full {
   width: 100%;
@@ -2265,6 +2311,254 @@ select {
   }
   #right-panel {
     margin-left: 300px;
+  }
+  #right-panel header {
+    height: 450px;
+  }
+  #right-panel section {
+    padding: 2.5em 0;
+  }
+  #right-panel section h2 {
+    font-size: 2.3em;
+    margin-bottom: 0.8em;
+  }
+  #right-panel section p {
+    line-height: 2em;
+    font-size: 1em;
+  }
+  #right-panel section .button {
+    padding: 1.2em 3em;
+  }
+  #right-panel .container {
+    padding: 0 3.2em;
+  }
+  #right-panel #contact form .form-row {
+    margin-left: -12px;
+    margin-bottom: 12px;
+  }
+  #right-panel #contact form .form-row .half,
+  #right-panel #contact form .form-row .full {
+    padding-left: 12px;
+  }
+  #right-panel #contact form .form-row input[type="text"],
+  #right-panel #contact form .form-row input[type="email"],
+  #right-panel #contact form .form-row textarea {
+    padding: 0.8em 0.8em;
+  }
+  #right-panel #contact form .form-row textarea {
+    min-height: 15em;
+  }
+  #right-panel #footer {
+    padding: 3em 0;
+  }
+}
+@media screen and (max-width: 920px) {
+  #left-panel {
+    width: 210px;
+  }
+  #left-panel .profile {
+    min-height: 112px;
+    text-align: right;
+    margin: 35px 25px;
+  }
+  #left-panel .profile .face {
+    display: inline-block;
+    float: none;
+    width: 60px;
+    height: 60px;
+  }
+  #left-panel .profile .desc {
+    position: relative;
+    top: 5px;
+    float: none;
+  }
+  #left-panel .profile .desc h1 {
+    font-size: 2em;
+  }
+  #left-panel .profile .desc h2 {
+    font-size: 1.1em;
+  }
+  #left-panel .nav-menu ul li a {
+    font-size: 0.9em;
+  }
+  #left-panel .nav-menu ul li a .fa {
+    font-size: 1.1em;
+    top: 6px;
+  }
+  #left-panel .social {
+    bottom: 0;
+  }
+  #left-panel .social ul {
+    margin-bottom: 2em;
+  }
+  #left-panel .social ul li a {
+    width: 32px;
+  }
+  #right-panel {
+    margin-left: 210px;
+  }
+  #right-panel header {
+    height: 350px;
+  }
+  #right-panel section {
+    padding: 2.2em 0;
+  }
+  #right-panel section h2 {
+    font-size: 2em;
+    margin-bottom: 0.6em;
+  }
+  #right-panel section p {
+    line-height: 2em;
+    font-size: 0.8em;
+  }
+  #right-panel section .button {
+    padding: 1em 2.6em;
+  }
+  #right-panel .container {
+    padding: 0 1.8em;
+  }
+  #right-panel #contact form .form-row {
+    margin-left: 0px;
+    margin-bottom: 8px;
+  }
+  #right-panel #contact form .form-row .half,
+  #right-panel #contact form .form-row .full {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  #right-panel #contact form .form-row .half:last-child {
+    margin-bottom: 0;
+  }
+  #right-panel #contact form .form-row input[type="text"],
+  #right-panel #contact form .form-row input[type="email"],
+  #right-panel #contact form .form-row textarea {
+    padding: 0.8em 0.8em;
+  }
+  #right-panel #contact form .form-row textarea {
+    min-height: 14em;
+  }
+  #right-panel #footer {
+    padding: 2.5em 0;
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 690px) {
+  #left-panel {
+    width: 240px;
+    left: -240px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+  }
+  .chosing #left-panel {
+    -webkit-transform: translate(240px, 0);
+    -moz-transform: translate(240px, 0);
+    -ms-transform: translate(240px, 0);
+    transform: translate(240px, 0);
+    -webkit-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
+    box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125), 0.25em 0 0.5em 0 rgba(0, 0, 0, 0.5);
+  }
+  #left-panel .toggle {
+    display: block;
+  }
+  #left-panel .profile {
+    min-height: 70px;
+  }
+  #left-panel .profile .face {
+    float: left;
+    width: 65px;
+    height: 65px;
+  }
+  #left-panel .profile .desc h1 {
+    font-size: 2.2em;
+  }
+  #left-panel .profile .desc h2 {
+    font-size: 1.3em;
+  }
+  #left-panel .nav-menu ul li a {
+    font-size: 1em;
+    padding: 0.9em 2em;
+    line-height: 28px;
+  }
+  #left-panel .nav-menu ul li a .fa {
+    font-size: 1.2em;
+    top: 4px;
+  }
+  #left-panel .social {
+    bottom: 0;
+  }
+  #left-panel .social ul {
+    margin-bottom: 2.5em;
+  }
+  #left-panel .social ul li a {
+    width: 35px;
+  }
+  #left-panel .social ul li a span {
+    font-size: 1.4em;
+  }
+  #right-panel {
+    margin-left: 0px;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    -moz-transition: -moz-transform 0.4s ease;
+    -ms-transition: -ms-transform 0.4s ease;
+    transition: transform 0.4s ease;
+  }
+  .chosing #right-panel {
+    -webkit-transform: translate(240px, 0);
+    -moz-transform: translate(240px, 0);
+    -ms-transform: translate(240px, 0);
+    transform: translate(240px, 0);
+  }
+  #right-panel header {
+    height: 260px;
+  }
+  #right-panel section {
+    padding: 2.2em 10px 2.2em 0;
+  }
+  #right-panel section h2 {
+    font-size: 2em;
+    margin-bottom: 0.6em;
+  }
+  #right-panel section p {
+    line-height: 2em;
+    font-size: 0.8em;
+  }
+  #right-panel section .button {
+    padding: 1em 2.6em;
+  }
+  #right-panel .container {
+    padding: 0 1.2em;
+  }
+  #right-panel #contact form .form-row {
+    margin-left: 0px;
+    margin-bottom: 8px;
+  }
+  #right-panel #contact form .form-row .half,
+  #right-panel #contact form .form-row .full {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  #right-panel #contact form .form-row .half:last-child {
+    margin-bottom: 0;
+  }
+  #right-panel #contact form .form-row input[type="text"],
+  #right-panel #contact form .form-row input[type="email"],
+  #right-panel #contact form .form-row textarea {
+    padding: 0.5em 0.8em;
+  }
+  #right-panel #contact form .form-row textarea {
+    min-height: 10em;
+  }
+  #right-panel #footer {
+    padding: 2.5em 0;
+    font-size: 0.8em;
   }
 }
 /*# sourceMappingURL=index.css.map */

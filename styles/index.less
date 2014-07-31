@@ -34,6 +34,7 @@ body{
 	position: relative;
 	overflow: hidden;
 	min-height: 470px;
+	min-width: 320px;
 }
 
 body, input, textarea, select{
@@ -73,6 +74,7 @@ body, input, textarea, select{
 	width: 370px;
 	background-color: #222729;
 	.box-shadow(inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125),0.25em 0 0.5em 0 rgba(0,0,0,0.5));
+	z-index: 999;
 
 	.profile{
 		position: relative;
@@ -187,12 +189,42 @@ body, input, textarea, select{
 			}
 		}
 	}
+
+	.toggle{
+		position: absolute;
+		right: -45px;
+		top: 5px;
+		width: 40px;
+		height: 40px;
+		background-color: rgba(0,0,0,0.25);
+		cursor: pointer;
+		display: none;
+		.border-radius(10px);
+
+		.icon{
+			position: absolute;
+			left: 7px;
+			top: 7px;
+			width: 26px;
+			opacity: 0.8;
+			.transition(transform 0.3s ease);
+
+			.chosing &{
+				.rotate(45deg);
+			}
+		}
+	}
 }
 
 #right-panel{
 	margin-left: 370px;
 	margin-right: 10px;
 	
+	header{
+		height: 600px;
+		background: url('../images/banner.jpg') center center no-repeat;
+		background-size: auto 100%;
+	}
 	section{
 		padding: 3em 0;
 		.box-shadow(inset 0 -1px 0 0 rgba(0,0,0,0.05), inset 0 -0.1em 0.1em 0 rgba(0,0,0,0.025));
@@ -221,7 +253,7 @@ body, input, textarea, select{
 			color: #fff;
 			background-color: #8ebebc;
 			border: 0;
-			.transition(all 0.35s ease-in-out);
+			.transition(background 0.35s ease-in-out);
 			.border-radius(0.35em);
 
 			&:hover{
@@ -246,6 +278,8 @@ body, input, textarea, select{
 		background-color: #e8edec;
 
 		form{
+			margin-top: 1.5em;
+
 			.form-row{
 				margin-left: -15px;
 				overflow: auto;
@@ -256,6 +290,7 @@ body, input, textarea, select{
 					float: left;
 					padding-left: 15px;
 					.box-sizing(border-box);
+					overflow: hidden;
 				}
 				.full{
 					width: 100%;
@@ -349,5 +384,305 @@ body, input, textarea, select{
 
 	#right-panel{
 		margin-left: 300px;
+
+		header{
+			height: 450px;
+		}
+
+		section{
+			padding: 2.5em 0;
+
+			h2{
+				font-size: 2.3em;
+				margin-bottom: 0.8em;
+			}
+
+			p{
+				line-height: 2em;
+				font-size: 1em;
+			}
+
+			.button{
+				padding: 1.2em 3em;
+			}
+		}
+		.container{
+			padding: 0 3.2em;
+		}
+		#contact{
+
+			form{
+				.form-row{
+					margin-left: -12px;
+					margin-bottom: 12px;
+
+					.half, .full{
+						padding-left: 12px;
+					}
+
+					input[type="text"], input[type="email"], textarea{
+						padding: 0.8em 0.8em;
+					}
+					textarea{
+						min-height: 15em;
+					}
+				}
+			}
+		}
+
+		#footer{
+			padding: 3em 0;
+		}
+	}
+}
+
+@media screen and (max-width: 920px) {
+	#left-panel{
+		width: 210px;
+
+		.profile{
+			min-height: 112px;
+			text-align: right;
+			margin: 35px 25px;
+
+			.face{
+				display: inline-block;
+				float: none;
+				width: 60px;
+				height: 60px;
+			}
+
+			.desc{
+				position: relative;
+				top: 5px;
+				float: none;
+				h1{
+					font-size: 2em;
+				}
+				h2{
+					font-size: 1.1em;
+				}
+			}
+		}
+
+		.nav-menu{
+			ul{
+				li{
+					a{
+						font-size: 0.9em;
+
+						.fa{
+							font-size: 1.1em;
+							top: 6px;
+						}
+					}
+				}
+			}
+		}
+
+		.social{
+			bottom: 0;
+
+			ul{
+				margin-bottom: 2em;
+				li{
+					a{
+						width: 32px;
+					}
+				}
+			}
+		}
+	}
+
+	#right-panel{
+		margin-left: 210px;
+
+		header{
+			height: 350px;
+		}
+
+		section{
+			padding: 2.2em 0;
+
+			h2{
+				font-size: 2em;
+				margin-bottom: 0.6em;
+			}
+
+			p{
+				line-height: 2em;
+				font-size: 0.8em;
+			}
+
+			.button{
+				padding: 1em 2.6em;
+			}
+		}
+		.container{
+			padding: 0 1.8em;
+		}
+		#contact{
+
+			form{
+				.form-row{
+					margin-left: 0px;
+					margin-bottom: 8px;
+
+					.half, .full{
+						margin-bottom: 8px;
+						width: 100%;
+					}
+					.half:last-child{
+						margin-bottom: 0;
+					}
+
+					input[type="text"], input[type="email"], textarea{
+						padding: 0.8em 0.8em;
+					}
+					textarea{
+						min-height: 14em;
+					}
+				}
+			}
+		}
+
+		#footer{
+			padding: 2.5em 0;
+			font-size: 0.8em;
+		}
+	}
+}
+
+@media screen and (max-width: 690px) {
+	#left-panel{
+		width: 240px;
+		left: -240px;
+		.transition(all 0.4s ease);
+		.box-shadow(none);
+
+		.chosing &{
+			.translate(240px, 0);
+			.box-shadow(inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125),0.25em 0 0.5em 0 rgba(0,0,0,0.5));
+		}
+
+		.toggle{
+			display: block;
+		}
+
+		.profile{
+			min-height: 70px;
+
+			.face{
+				float: left;
+				width: 65px;
+				height: 65px;
+			}
+
+			.desc{
+				h1{
+					font-size: 2.2em;
+				}
+				h2{
+					font-size: 1.3em;
+				}
+			}
+		}
+
+		.nav-menu{
+			ul{
+				li{
+					a{
+						font-size: 1em;
+						padding: 0.9em 2em;
+						line-height: 28px;
+
+						.fa{
+							font-size: 1.2em;
+							top: 4px;
+						}
+					}
+				}
+			}
+		}
+
+		.social{
+			bottom: 0;
+
+			ul{
+				margin-bottom: 2.5em;
+				li{
+					a{
+						width: 35px;
+
+						span{
+							font-size: 1.4em;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#right-panel{
+		margin-left: 0px;
+		.transition(transform 0.4s ease);
+
+		.chosing &{
+			.translate(240px, 0);
+		}
+
+		header{
+			height: 260px;
+		}
+
+		section{
+			padding: 2.2em 10px 2.2em 0;
+
+			h2{
+				font-size: 2em;
+				margin-bottom: 0.6em;
+			}
+
+			p{
+				line-height: 2em;
+				font-size: 0.8em;
+			}
+
+			.button{
+				padding: 1em 2.6em;
+			}
+		}
+		.container{
+			padding: 0 1.2em;
+		}
+		#contact{
+
+			form{
+				.form-row{
+					margin-left: 0px;
+					margin-bottom: 8px;
+
+					.half, .full{
+						margin-bottom: 8px;
+						width: 100%;
+					}
+					.half:last-child{
+						margin-bottom: 0;
+					}
+
+					input[type="text"], input[type="email"], textarea{
+						padding: 0.5em 0.8em;
+					}
+					textarea{
+						min-height: 10em;
+					}
+				}
+			}
+		}
+
+		#footer{
+			padding: 2.5em 0;
+			font-size: 0.8em;
+		}
 	}
 }
