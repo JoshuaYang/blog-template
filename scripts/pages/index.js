@@ -39,8 +39,9 @@ define(['jquery',
 			target = $($this.find('a').attr('href')).offset().top
 		}
 
-		TweenMax.to([$html, $body], 0.5, {
-			scrollTop: target
+		TweenMax.to([$html, $body], 1, {
+			scrollTop: target,
+			ease: Strong.easeOut
 		});
 
 		navItems.filter('.active').removeClass('active');
