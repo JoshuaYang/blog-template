@@ -15,11 +15,11 @@ define(['jquery',
 		rightPanel = $('#right-panel'),
 		navItems = $('.nav-menu ul li'),
 		customScrollBarContent = $('.customScrollBarContent'),
-		toggleBtn = $('.toggle');
+		toggleBtn = $('.toggle'),
+		rightSections = rightPanel.find('section');
 
 	var wh = $window.height(),
 		dh = $document.height();
-
 
 
 
@@ -91,8 +91,7 @@ define(['jquery',
 	});
 	rightPanel.on('click', function(){
 		$body.removeClass('chosing');
-	})
-
+	});
 
 	// custom scrollbar
 	$window.on('scroll', changeScrollBarPos).on('resize', changeScrollBarHeight);

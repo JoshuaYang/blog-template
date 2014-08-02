@@ -1949,6 +1949,7 @@ body {
   user-select: none;
 }
 body {
+  height: auto;
   position: relative;
   overflow: hidden;
   min-height: 470px;
@@ -2214,6 +2215,7 @@ select {
   display: inline-block;
   width: 32%;
   overflow: hidden;
+  margin-bottom: 1.5%;
 }
 #right-panel #hobby ul.covers li div.js-picture {
   width: 100%;
@@ -2254,7 +2256,7 @@ select {
   position: absolute;
   bottom: -10%;
   text-align: left;
-  line-height: 22px;
+  line-height: 24px;
   opacity: 0;
   -webkit-transition: all 0.35s ease;
   -moz-transition: all 0.35s ease;
@@ -2603,7 +2605,7 @@ select {
     height: 260px;
   }
   #right-panel section {
-    padding: 2.2em 10px 2.2em 0;
+    padding: 2.2em 0 2.2em 0;
   }
   #right-panel section h2 {
     font-size: 2em;
@@ -2618,6 +2620,9 @@ select {
   }
   #right-panel .container {
     padding: 0 1.2em;
+  }
+  #right-panel #contact form {
+    padding-right: 10px;
   }
   #right-panel #contact form .form-row {
     margin-left: 0px;
