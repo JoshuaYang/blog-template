@@ -1918,6 +1918,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.js-picture {
+  font-size: 0;
+}
 .js-picture img,
 .js-picture canvas {
   width: 100%;
@@ -2202,6 +2205,86 @@ select {
 #right-panel #hobby {
   background-color: #f5fafa;
 }
+#right-panel #hobby ul.covers {
+  text-align: justify;
+}
+#right-panel #hobby ul.covers li {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 32%;
+  overflow: hidden;
+}
+#right-panel #hobby ul.covers li div.js-picture {
+  width: 100%;
+  overflow: hidden;
+}
+#right-panel #hobby ul.covers li div.js-picture img,
+#right-panel #hobby ul.covers li div.js-picture canvas {
+  -webkit-transition: -webkit-transform 0.4s ease;
+  -moz-transition: -moz-transform 0.4s ease;
+  -ms-transition: -ms-transform 0.4s ease;
+  transition: transform 0.4s ease;
+}
+#right-panel #hobby ul.covers li .cover-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 10%;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: background 0.35s ease;
+  -moz-transition: background 0.35s ease;
+  -ms-transition: background 0.35s ease;
+  transition: background 0.35s ease;
+  color: white;
+}
+#right-panel #hobby ul.covers li .cover-mask h3 {
+  position: absolute;
+  top: -10%;
+  font-size: 2em;
+  opacity: 0;
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  -ms-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+#right-panel #hobby ul.covers li .cover-mask p {
+  position: absolute;
+  bottom: -10%;
+  text-align: left;
+  line-height: 22px;
+  opacity: 0;
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  -ms-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.no-touch #right-panel #hobby ul.covers li:hover .js-picture img,
+.no-touch #right-panel #hobby ul.covers li:hover .js-picture canvas {
+  -webkit-transform: scale(1.08);
+  -moz-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+  transform: scale(1.08);
+}
+.no-touch #right-panel #hobby ul.covers li:hover .cover-mask {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.no-touch #right-panel #hobby ul.covers li:hover .cover-mask h3 {
+  top: 10%;
+  opacity: 1;
+}
+.no-touch #right-panel #hobby ul.covers li:hover .cover-mask p {
+  bottom: 10%;
+  opacity: 1;
+}
+#right-panel #hobby ul.covers:after {
+  content: "";
+  display: inline-block;
+  text-align: justify;
+  width: 100%;
+}
 #right-panel #about {
   background-color: #ecf1f1;
 }
@@ -2271,7 +2354,7 @@ select {
 #right-panel #footer p {
   text-align: center;
 }
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1450px) {
   #left-panel {
     width: 300px;
   }
@@ -2561,4 +2644,3 @@ select {
     font-size: 0.8em;
   }
 }
-/*# sourceMappingURL=index.css.map */

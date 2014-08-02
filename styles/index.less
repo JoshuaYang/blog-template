@@ -4,6 +4,8 @@
 .reset();
 
 .js-picture{
+	font-size: 0;
+
 	img, canvas{
 		width: 100%;
 	}
@@ -270,6 +272,88 @@ body, input, textarea, select{
 	}
 	#hobby{
 		background-color: #f5fafa;
+
+		ul.covers{
+			text-align: justify;
+
+			li{
+				position: relative;
+				cursor: pointer;
+				display: inline-block;
+				width: 32%;
+				overflow: hidden;
+
+				div.js-picture{
+					width: 100%;
+					overflow: hidden;
+
+					img, canvas{
+						.transition(transform 0.4s ease);
+					}
+					
+				}
+
+				.cover-mask{
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					padding: 0 10%;
+					background-color: rgba(0,0,0,0);
+					.transition(background 0.35s ease);
+					color: white;
+
+					h3{
+						position: absolute;
+						top: -10%;
+						font-size: 2em;
+						opacity: 0;
+						.transition(all 0.35s ease);
+					}
+
+					p{
+						position: absolute;
+						bottom: -10%;
+						text-align: left;
+						line-height: 22px;
+						opacity: 0;
+						.transition(all 0.35s ease);
+					}
+				}
+
+				.no-touch &:hover{
+					.js-picture{
+						img, canvas{
+							.scale(1.08);
+						}
+					}
+
+					.cover-mask{
+						background-color: rgba(0,0,0,0.6);
+
+						h3{
+							top: 10%;
+							opacity: 1;
+						}
+
+						p{
+							bottom: 10%;
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+			&:after{
+				content:"";
+				display: inline-block;
+				text-align: justify;
+				width: 100%;
+			}
+
+			
+		}
 	}
 	#about{
 		background-color: #ecf1f1;
@@ -326,7 +410,7 @@ body, input, textarea, select{
 	}
 }
 
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1450px) {
 	#left-panel{
 		width: 300px;
 
