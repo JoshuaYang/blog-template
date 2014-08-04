@@ -45,6 +45,49 @@ body, input, textarea, select{
 	color: #888;
 }
 
+#loading{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 999999;
+	background-color: rgba(0, 0, 0, 0.7);
+	.top,.bottom{
+		position: absolute;
+		width: 100%;
+		height: 50%;
+		background-color: #242424;
+	}
+	.top{
+		top: 0;
+		h4{
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			bottom: 10%;
+			font-size: 1.5em;
+			color: #8ebebc;
+
+		}
+	}
+	.bottom{
+		bottom: 0;
+	}
+
+	.line-bg{
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		height: 1px;
+		background-color: rgba(255,255,255,0.2);
+		.line{
+			width: 0;
+			height: 100%;
+			background-color: #9ececc;
+			.box-shadow(0,0,15px,#8ebebc);
+		}
+	}
+}
+
 .customScrollBar{
 	position: fixed;
 	right: 0;

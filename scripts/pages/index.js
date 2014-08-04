@@ -16,10 +16,19 @@ define(['jquery',
 		navItems = $('.nav-menu ul li'),
 		customScrollBarContent = $('.customScrollBarContent'),
 		toggleBtn = $('.toggle'),
-		rightSections = rightPanel.find('section');
+		rightSections = rightPanel.find('section'),
+		loading = $('#loading'),
+		loadingTop = $('#loading .top'),
+		loadingBottom = $('#loading .bottom'),
+		loadingBg = $('.line-bg'),
+		loadingLine = $('.line-bg .line');
 
 	var wh = $window.height(),
 		dh = $document.height();
+
+	var loadedPics = 0,
+		totalPics = $('.js-picture').length,
+		st_load;
 
 
 
@@ -63,14 +72,41 @@ define(['jquery',
 		$('.js-picture').each(function(i, item){
 			var p = new Picture(item);
 
-			$(p).on('done', function(){})
-			.on('error', function(){});
+			$(p).on('done', function(){
+				++loadedPics;
+			}).on('error', function(){});
 		});
 
 		Picture.load();
 	})();
 
-
+	// loading
+	(function(){
+		st_load = setInterval(function(){
+			TweenMax.to(loadingLine, .5, {
+				width: loadedPics / totalPics * 100 + "%",
+				onUpdate: function(){
+					if(Math.abs(loadingLine.width() - loadingBg.width()) < 1){
+						clearInterval(st_load);
+						TweenMax.set(loadingBg, {display: 'none'});
+						TweenMax.to(loadingTop, .5, {
+							top: '-50%'
+						});
+						TweenMax.to(loadingBottom, .5, {
+							bottom: '-50%'
+						});
+						TweenMax.to(loading, .5, {
+							opacity: 0,
+							delay: .5,
+							onComplete: function(){
+								TweenMax.set(loading, {display: 'none'});
+							}
+						})
+					}
+				}
+			});
+		}, 100);	
+	})();
 
 
 

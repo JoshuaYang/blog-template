@@ -1962,6 +1962,50 @@ select {
   font-family: 'Microsoft Yahei', '微软雅黑';
   color: #888;
 }
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#loading .top,
+#loading .bottom {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: #242424;
+}
+#loading .top {
+  top: 0;
+}
+#loading .top h4 {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 10%;
+  font-size: 1.5em;
+  color: #8ebebc;
+}
+#loading .bottom {
+  bottom: 0;
+}
+#loading .line-bg {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+#loading .line-bg .line {
+  width: 0;
+  height: 100%;
+  background-color: #9ececc;
+  -webkit-box-shadow: 0 0 15px #8ebebc;
+  -moz-box-shadow: 0 0 15px #8ebebc;
+  -ms-box-shadow: 0 0 15px #8ebebc;
+  box-shadow: 0 0 15px #8ebebc;
+}
 .customScrollBar {
   position: fixed;
   right: 0;
@@ -2691,3 +2735,4 @@ select {
     font-size: 0.8em;
   }
 }
+/*# sourceMappingURL=index.css.map */
